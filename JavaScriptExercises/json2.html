@@ -12,6 +12,7 @@ var request = new XMLHttpRequest();
 request.open("GET", requestURL);
 request.responseType = "json"
 request.send();
+var counter =0;
 request.onload = function() {
 	var requestData = request.response;
 	var searchQuery = box1.value; 
@@ -24,8 +25,11 @@ request.onload = function() {
             return;
         }  
         }
-
+		if(counter!==0){
         alert("no match found!");
+		} else{
+			counter =1;
+		}
     }
 
 

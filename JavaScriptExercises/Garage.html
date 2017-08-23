@@ -1,0 +1,118 @@
+<html>
+<script>
+var carList = new Array();
+
+function createCar(model,reg,boot,faults){
+    var it = {};
+    it.model = model;
+    it.reg = reg;
+    it.boot = boot;
+    it.faults = faults;
+    carList.push(it);
+}
+function outputList(){
+     document.getElementById("para").innerHTML = ""
+    for(var i=0; i<carList.length;i++){
+      
+        document.getElementById("para").innerHTML += "Model:" + carList[i].model +", Reg No.:"+ carList[i].reg + ", Boot type: " + carList[i].boot + ", Faults: "+ carList[i].faults ;
+        
+        document.getElementById("para").innerHTML += "<br>"
+
+    }
+
+}
+function calculateBill(search){
+   var faults=0;
+   var bill=0;
+
+   for(var i=0; i<carList.length;i++){
+      if(search == carList[i].reg){
+       faults = Number(carList[i].faults);
+        bill = faults*100;
+     document.getElementById("para2").innerHTML += "To fix your"+ carList[i].model+ " , it will cost:£"+ (bill);
+     break;
+        }
+   }
+}
+function checkOut(query){
+     for(var i=0; i<carList.length;i++){
+      if(query== carList[i].reg){
+      carList.splice(i,1);
+      outputList();
+     break;
+        }
+   }
+
+}
+function commandLine(input){
+    var inputArray = input.split(" ");
+
+if(input === "output"){
+    outputList();
+
+}else if (input.substring(0,4)==="cbill" ){
+    calculateBill(input.substring(6,input.length-1))
+
+}else if(input.substring(0,3)==="cout"){
+    checkOut(input.substring(5,input.length-1))
+} else if(input.substring(0,5)==="create" ){
+    var inputArray = input.split(" ");
+    createCar(inputArray[1],inputArray[2],inputArray[3],inputArray[4]);
+
+
+}
+}
+
+
+
+
+</script>
+<body>
+
+<form action="/action_page.php">
+  Model:<br>
+  <input id="modelBox" type="text" name="model" value="">
+  <br>
+  Reg-No.:<br>
+  <input id="regBox" type="text" name="reg" value="">
+  <br>
+   Boot Type:<br>
+  <input id="bootBox" type="text" name="Boot" value="">
+  <br>
+  Faults: <br>
+  <input id="faultBox" type="text" name="faults" value="">
+  <br><br>
+  
+ <input type="button" onclick="createCar(modelBox.value,regBox.value,bootBox.value,faultBox.value)" value ="Create Car" />
+ <input type="button" onclick="outputList()" value ="Output List" />
+ <br><br>
+
+ Calculate Bill, Search by Reg No. <br>
+ <input id="billBox" type="text" name="faults" value="">
+  <br><br>
+ <input type="button" onclick="calculateBill(billBox.value)" value ="Calculate Bill" />
+<br><br>
+
+
+Check Out Car by Reg No. <br>
+  <input id="checkOutBox" type="text" name="cOut" value="">
+  <br><br>
+  
+ <input type="button" onclick="checkOut(checkOutBox.value)" value ="Checkout Car" />
+ <br><br> <br><br> <br><br> <br><br>
+
+Command Line <br>
+  <input id="commandLineBox" type="text" name="CLI" value="">
+  <br><br>
+  
+ <input type="button" onclick="commandLine(commandLineBox.value)" value ="Enter Command" />
+</form> 
+
+<div id="div1"> 
+<p id="para">  </p> 
+<br><br>
+<p id="para2"> </p>
+</div>
+
+</body>
+</html>

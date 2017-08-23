@@ -1,0 +1,38 @@
+<html>
+<head>
+<script>
+function fizzBuzz(a,b,c){
+for(var i=1; i< a;i++)
+{	 if(i%3==0 && i%5==0){
+		alert(b+c);
+
+	}else if(i%3 ==0){
+		alert(b);
+		continue;
+	} else if(i%5==0){	
+		alert(c);
+	} else {
+		alert(i);
+	
+	}
+}
+
+}
+</script>
+</head>
+<body>
+<form action="/action_page.php">
+  Upper Bound:<br>
+  <input id="box1" type="text" name="Upper Bound" value="">
+  <br>
+  divisible by 3 word:<br>
+  <input id="box2" type="text" name="div 3 word" value="">
+  <br>
+   divisible by 5 word: <br>
+  <input id="box3" type="text" name="div 5 word" value="">
+  <br><br>
+  
+ <input type="button" onclick="fizzBuzz(box1.value,box2.value,box3.value)" value ="Submit" />
+</body>
+
+</html>

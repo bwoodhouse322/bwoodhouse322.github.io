@@ -1,0 +1,30 @@
+<html>
+<script>
+var Person = {name: "ben" , age: 21, occupation: "IT Consultant"};
+
+function changeDetails(a,b,c){
+Person.name = a;
+Person.age = b;
+Person.occupation = c;
+window.alert("name :" + Person.name + ", Age: " +  Person.age + " , Occupation :" + Person.occupation );
+
+
+}
+</script>
+<body>
+
+<form action="/action_page.php">
+  Name:<br>
+  <input id="box1" type="text" name="Name" value="">
+  <br>
+  Age:<br>
+  <input id="box2" type="text" name="Age" value="">
+  <br>
+  Occupation: <br>
+  <input id="box3" type="text" name="Occupation" value="">
+  <br><br>
+  
+ <input type="button" onclick="changeDetails(box1.value,box2.value,box3.value)" value ="Submit" />
+</form> 
+</body>
+</html>

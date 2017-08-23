@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+ <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding"> 
+
+<script>
+
+var requestURL = "https://raw.githubusercontent.com/ewomackQA/JSONDataRepo/master/example.json";
+var request = new XMLHttpRequest();
+request.open("GET", requestURL);
+request.responseType = "json"
+request.send();
+request.onload = function() {
+	var requestData = request.response;
+	var myH1 = document.createElement("H1");
+	var myH2 = document.createElement("H2");
+	var div = document.getElementById("div1");
+	var node = document.createTextNode(requestData.squadName);
+	var node2 = document.createTextNode(requestData.homeTown + ", Formed: " + requestData.formed + ", Base: " + requestData.secretBase + ", Active: "+ requestData.active);
+	
+	myH1.appendChild(node);
+	myH2.appendChild(node2);
+	div.appendChild(myH1);
+	div.appendChild(myH2);
+	div.appendChild(para);
+	
+
+	for(var i=0; i<3;i++){
+	document.getElementById("para").innerHTML +="Name: "+ requestData["members"][i].name+ ", Age:";
+	document.getElementById("para").innerHTML += requestData["members"][i].age+ ", Secret Identity ";
+	document.getElementById("para").innerHTML += requestData["members"][i].secretIdentity+ ", Powers: ";
+	document.getElementById("para").innerHTML += requestData["members"][i].powers+ ". ";
+	document.getElementById("para").innerHTML += "<br><br>";
+	}
+
+	
+
+
+	
+		
+		
+}
+
+
+
+</script>
+</head>
+<body>
+<div>
+	<div id="div1">
+
+
+
+<p id="para">    </p>
+
+<div>
+
+</div>
+
+</body>
+</html>

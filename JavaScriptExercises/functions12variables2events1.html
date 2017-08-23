@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script>
+
+var Person = {name: "ben" , age: 21, occupation: "IT Consultant"}
+document.write("name :" + Person.name + ", Age: " +  Person.age + " , Occupation :" + Person.occupation );
+Person.name = "Leon";
+Person.age = 23;
+Person.Occupation = "Consultant";
+document.write("name :" + Person.name + ", Age: " +  Person.age + " , Occupation :" + Person.occupation );
+
+
+
+function square(num){
+	var square1= num*num;
+	window.alert(square1);
+	
+	return square1;
+	
+}
+function sumThree(a,b,c){
+	var sum = a+b+c ;
+	window.alert(sum);
+	
+	return sum;
+	
+}
+function ageIncrease(){
+Person.age += 1;
+window.alert("name :" + Person.name + ", Age: " +  Person.age + " , Occupation :" + Person.occupation );
+
+}
+
+
+</script>
+<input type="button" onclick="square(15)" value ="Square 15" />
+<input type="button" onclick="ageIncrease(15)" value ="Increase Age" />
+</body>
+</html> 

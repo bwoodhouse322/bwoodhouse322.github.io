@@ -1,0 +1,76 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <h1>Rektangles</h1> <br><br>
+
+    <div id="div1">
+
+        <p id="para"> </p>
+
+    </div>
+
+
+    <script>
+        var string1 = "hello";
+        var ourString = string1.toUpperCase();
+        var numberOfSpaces = string1.length - 2;
+        var spaces = "\u00A0";
+        var width = 4;
+        var counter =0;
+        var number =0 ;
+        spaces = spaces.repeat(12)
+
+
+        for (var i = 0; i < ourString.length; i++) {
+           
+            if (i === 0) {
+               
+                do{
+                     if(counter ===1){
+                number=1;
+                }
+                for (var j = number; j < ourString.length; j++) {
+                    document.getElementById("para").innerHTML += ourString.charAt(j) + " ";
+                }
+                width -= 1;
+                if (width === 0) {
+                } else {
+                    for (var j = ourString.length - 2; j >= 0; j--) {
+                        document.getElementById("para").innerHTML += ourString.charAt(j) + " ";
+                    }
+                    width -= 1;
+                    counter =1;
+                } 
+                } while(width !=0)
+                
+                document.getElementById("para").innerHTML += "<br>";
+
+
+
+
+
+
+            } else if (i === (ourString.length - 1)) {
+
+                for (var j = ourString.length - 1; j >= 0; j--) {
+                    document.getElementById("para").innerHTML += ourString.charAt(j) + " ";
+
+                }
+
+            } else {
+
+                document.getElementById("para").innerHTML += ourString.charAt(i) + spaces + ourString.charAt(ourString.length - i - 1) + "<br>";
+
+            }
+
+
+        }
+
+    </script>
+
+</body>
+
+</html>

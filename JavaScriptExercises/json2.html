@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+ <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding"> 
+
+<script>
+
+var requestURL = "https://raw.githubusercontent.com/ewomackQA/JSONDataRepo/master/kings.json";
+var request = new XMLHttpRequest();
+request.open("GET", requestURL);
+request.responseType = "json"
+request.send();
+request.onload = function() {
+	var requestData = request.response;
+	var searchQuery = box1.value; 
+    
+	//document.getElementsByTagName("head")[0].appendChild(myH1);
+        for(var i=0; i<requestData.length;i++){
+		if(searchQuery == requestData[i].nm ||searchQuery==requestData[i].cty||searchQuery==requestData[i].hse|| searchQuery==requestData[i].yrs  ){
+
+            alert( requestData[i].nm +requestData[i].cty + requestData[i].hse + requestData[i].yrs)
+            return;
+        }  
+        }
+
+        alert("no match found!");
+    }
+
+
+
+
+</script>
+</head>
+<body>
+<div>
+	<div id="div1">
+        <h1> KINGS IN THE NORTH </h1>
+
+        <form >
+  King Search:<br>
+  <input id="box1" type="text" name="Name" value="">
+  <br><br>
+ <input type="button" onclick="request.onload(box1.value)" value ="Search" />
+</form> 
+
+
+
+<p id="para">    </p>
+
+<div>
+
+</div>
+
+</body>
+</html>

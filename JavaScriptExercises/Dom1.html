@@ -1,0 +1,53 @@
+<html>
+<head>
+
+</head>
+<body>
+<form>
+ Change Paragraph tag text:<br>
+  <input id="box1" type="text" name="Name" value="">
+  <br><br>
+</form>
+ <input type="button" onclick="createParagraphTag()" value ="Create Paragaph tag" />
+ 
+ <input type="button" onclick="insertText(box1.value)" value ="Insert Text" />
+ 
+ <input type="button" onclick="deleteText()" value ="Delete Text" />
+ 
+ <br><br>
+ 
+ <div id="div1">
+ 
+ 
+ </div>
+ 
+ <script>
+
+	
+function createParagraphTag(){
+
+var para = document.createElement("p");
+var node = document.createTextNode("This is new.");
+para.appendChild(node);
+
+var element = document.getElementById("div1");
+element.appendChild(para);
+
+
+para.setAttribute("id","paragraph");
+}
+function insertText(text){
+	document.getElementById("paragraph").innerHTML = text;
+}
+function deleteText(){
+
+ document.getElementById("paragraph").innerHTML = " ";
+}
+
+</script>
+ 
+</body>
+
+</html>
+
+

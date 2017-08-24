@@ -73,6 +73,11 @@
 
     <!-- Menu Toggle Script -->
     <script>
+    var width=678;
+    var height=500;
+    self.moveTo((screen.availwidth-width)/2,(screen.availheight-height)/2);
+    self.resizeTo(width,height);
+
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");

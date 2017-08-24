@@ -1,0 +1,95 @@
+<html>
+<head>
+<script>
+    //                   3  7
+    function KnightPiece(x,y){
+
+       let xMoves = [1,-1,2,-2];
+       let yMoves =[1,-1,2,-2];
+       let counter =1;
+       let hitStepX = false; 
+       let hitStepY = false;
+       let avoid2 = false;
+       let avoid1= false; 
+       let isEven=false;
+       let currentX =0;
+       let currentY=0;
+
+       do
+       {
+           if(x >  currentX && (currentX -x) !=1 && hitStepX===false)
+           {
+              currentX += 2;
+              avoid2 = true;
+           }
+           else if((x > currentX && (currentX -x )==1) && hitStepX==true)
+           {
+               currentX +=1;
+                hitStepX = true;
+                avoid1 = true;
+           }
+           else if(x <  currentX && (currentX -x) !=1 && hitStepX===false)
+           {
+               currentX += -2;
+               avoid2 = true;
+               
+           }
+           else if((x <  currentX && (currentX -x) ==1) && hitStepX==true)
+           {
+               currentX += -1;
+                hitStepX = true;
+                avoid1 = true;
+
+           }else{
+               if(isEven){
+                   currentX +=1;
+                   isEven = false;
+               }else {
+                   currentX += -1 ;
+                   isEven = true;
+               }
+              
+           }
+           
+
+
+           // for Y 
+           
+           if(y >  currentY && (currentY -y) !=1 && hitStepY===false && avoid2==false)
+           {
+              currentY += 2;
+           }
+           else if(y >  currentY || (currentY -y) ==1 && avoid1 == false)
+           {
+               currentY +=1;
+                hitStepY = true;
+           }
+           else if(y <  currentY && (currentY -y) !=1 && hitStepY===false && avoid2== false)
+           {
+               currentY += -2;
+           }
+           else if(y <  currentY || (currentY -y) ==1 && avoid1 == false)
+           {
+               currentY += -1;
+                hitStepY = true;
+           }
+           alert("X" +currentX + " " + "Y"+ currentY);
+
+
+        avoid1 =false;
+        avoid2 = false;
+        counter++;
+
+       }while(!(currentX === x && currentY === y))
+
+       return counter;
+
+    }
+     console.log(KnightPiece(2,8));
+
+</script>
+</head>
+<body>
+</body>
+
+</html>

@@ -1,20 +1,31 @@
 <html>
+
 <head>
-<script>
-var tripleString = "hhhthere333nowttt";
-var counter =0;
-for(var i=0; i< tripleString.length-2; i++){
-if(tripleString.charAt(i)==tripleString.charAt(i+1) && tripleString.charAt(i)==tripleString.charAt(i+2))
-{
-	counter=counter+1;
-}
+	<script>
+		function words(tripleString) {
+		
+			var counter = 0;
+			for (var i = 0; i < tripleString.length - 2; i++) {
+				if (tripleString.charAt(i) == tripleString.charAt(i + 1) && tripleString.charAt(i) == tripleString.charAt(i + 2)) {
+					counter = counter + 1;
+					i += 2;
+				}
+			}
+				alert(counter);
+		}
+		
 
-}
-alert(counter);
-
-</script>
+	</script>
 </head>
+
 <body>
+
+	Word: <br>
+	<input id="box3" type="text" name="Occupation" value="">
+	<br><br>
+
+	<input type="button" onclick="words(box3.value)" value="GO!" />
+
 </body>
 
 </html>

@@ -1,4 +1,10 @@
 <html>
+
+<head>
+    <link href="styles.css" rel="stylesheet">
+    <title> Hangman </title>
+
+</head>
 <script>
     let hardWordBatch = ["job", "jab", "jug", "fox", "fix", "cry", "cat", "cot", "here", "legs", "find", "lint", "try", "sky"];
     let mediumWordBatch = ["guzzle", "carried", "trying", "flying", "kittens", "indeed", "success", "process", "second", "minute", "checked", "create", "ironic"];
@@ -100,7 +106,7 @@
 
         if (!correct) {
             attemptsLeft -= 1;
-            document.getElementById("para5").innerHTML = '<img src="' + attemptsLeft + '.PNG"  width="200" height="400">';
+            document.getElementById("para5").innerHTML = '<img class="image" src=" ' + attemptsLeft + '.PNG"  width="200" height="400">';
 
         }
 
@@ -138,31 +144,31 @@
 </script>
 
 <body>
+    <h1> Hangman </h1>
+
+
 
     <form return false>
-  
-        First choose difficulty..:
-        <input type="button" onclick="easy()" value="easy" /> <input type="button" onclick="medium()" value="medium" /> <input
-            type="button" onclick="hard()" value="hard" /><br><br>NOW START THE GAME!:
-        <input type="button" onclick="initialize()" value="Play!" /><br><br> GUESS A LETTER<br>
-        
-        <input id="letterInput" type="text" name="Name" value="" maxlength="1"  onPaste="" onkeydown="if (event.keyCode == 13) {letsPlay(letterInput.value);return false;}">
-        
-        <br>
-        <input id="guessButton" type="button" onclick="letsPlay(letterInput.value)" value="guess letter" /><br>
+
+        <input class="button2" type="button" onclick="easy()" value="easy" /> <input class="button2" type="button" onclick="medium()"
+            value="medium" /> <input class="button2" type="button" onclick="hard()" value="hard" /><br><br>
+        <input class="button" type="button" onclick="initialize()" value="Play!" /><br><br>
+        <p id="para5"> <img class="image" src="hangman.PNG" width="200" height="400"> </p>
+        <input class="bar" id="letterInput" type="text" name="Name" value="" maxlength="1" onPaste="" onkeydown="if (event.keyCode == 13) {letsPlay(letterInput.value);return false;}">
+
+
+        <input class="button3" id="guessButton" type="button" onclick="letsPlay(letterInput.value)" value="guess letter" /><br>
 
 
 
 
         <div id="div1">
-            <p id="para5"> </p>
-            <p id="para"> </p>
+
+            <p class="p1" id="para"> </p>
             <br><br>
-            <p id="para2"> </p>
-            <br><br>
-            <p id="para3"> </p>
-            <br><br>
-            <p id="para4"> </p>
+            <p class="p1" id="para2"> </p>
+            <p class="p1" id="para3"> </p>
+            <p class="p1" id="para4"> </p>
             <br><br>
 
         </div>

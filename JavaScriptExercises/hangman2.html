@@ -1,0 +1,163 @@
+<html>
+<script>
+    let hardWordBatch = ["job", "jab", "jug", "fox", "fix", "cry", "cat", "cot", "here", "legs", "find", "lint", "try", "sky"];
+    let mediumWordBatch =["guzzle","carried","trying","flying","kittens","indeed","success","process","second","minute","checked","create","ironic"];
+   let easyWordBatch= ["incredible","creation","tactictian","anthropologist","organism","communication","cuddlesome","miscellaneous","assortment","miniscule","peadophile","necrophilia"];
+    let wordChosen;
+    let attemptsLeft = 7;
+    let gameWon = false;
+    let gameLost = false;
+    let correct;
+    let index;
+    let correctLetterArray = [];
+let wordBatch =easyWordBatch;
+    function hard() {
+        wordBatch = hardWordBatch;
+      
+    }
+     function medium() {
+        wordBatch = mediumWordBatch;
+      
+    }
+     function easy() {
+        wordBatch = easyWordBatch;
+      
+    }
+
+
+    function initialize() {
+          console.log(wordBatch);
+        attemptsLeft = 7;
+        gameWon = false;
+        gameLost = false;
+        document.getElementById("para").innerHTML = "";
+
+        wordChosen = wordBatch[Math.floor(Math.random() * wordBatch.length)];
+        correctLetterArray.length = wordChosen.length;
+        console.log(wordChosen);
+        console.log(correctLetterArray);
+        document.getElementById("para3").innerHTML = "Guesses:";
+
+        document.getElementById("para4").innerHTML = "Attempts Left: " + attemptsLeft;
+
+
+
+        for (let i = 0; i < wordChosen.length; i++) {
+
+            document.getElementById("para").innerHTML += "_ ";
+        }
+
+
+    }
+
+
+
+
+
+    function letsPlay(a) {
+        if(a ===""){
+            alert("enter a character!");
+            return 0;
+
+        }
+        let letter = a;
+      
+
+        document.getElementById("para3").innerHTML += letter + " ";
+
+
+        for (let i = 0; i < wordChosen.length; i++) {
+
+
+            if (letter === wordChosen.charAt(i)) {
+                correctLetterArray[i] = letter;
+                console.log(correctLetterArray);
+                document.getElementById("para2").innerHTML = "Correct!";
+                printNew(letter, index);
+                correct = true;
+            }
+        }
+        gameWon = true;
+
+        for (let k = 0; k < correctLetterArray.length; k++) {
+            if (typeof correctLetterArray[k] === "undefined") {
+                gameWon = false;
+            }
+        }
+        if (gameWon) {
+            alert("YOU WON");
+            location.reload();
+        }
+
+
+
+
+
+        if (!correct) {
+            attemptsLeft -= 1;
+            document.getElementById("para5").innerHTML = '<img src="' + attemptsLeft + '.PNG"  width="200" height="400">';
+
+        }
+
+
+        if (attemptsLeft === 0) {
+            alert("GAME OVER");
+            location.reload();
+        }
+
+
+
+        correct = false;
+        document.getElementById("para4").innerHTML = "Attempts Left: " + attemptsLeft;
+
+     
+
+    }
+
+
+    function printNew(letter, index) {
+        document.getElementById("para").innerHTML = " ";
+
+        for (let i = 0; i < wordChosen.length; i++) {
+            if (typeof correctLetterArray[i] !== "undefined") {
+                document.getElementById("para").innerHTML += correctLetterArray[i] + " ";
+            } else {
+                document.getElementById("para").innerHTML += "_ ";
+            }
+        }
+
+
+
+    }
+
+</script>
+
+<body>
+
+    <form action="letsPlay(letterInput.value)">
+        First choose difficulty..:
+        <input type="button" onclick="easy()" value="easy" /> <input type="button" onclick="medium()" value="medium" /> <input type="button" onclick="hard()" value="hard" /><br><br>NOW START THE GAME!:
+        <input type="button" onclick="initialize()" value="Play!" /><br><br> GUESS A LETTER<br>
+        <input id="letterInput" type="text" name="Name" value="" maxlength="1">
+        <br>
+        <input id="guessButton" type="button" onclick="letsPlay(letterInput.value)" value="guess letter" /><br>
+
+
+
+
+        <div id="div1">
+            <p id="para5"> </p>
+            <p id="para"> </p>
+            <br><br>
+            <p id="para2"> </p>
+            <br><br>
+            <p id="para3"> </p>
+            <br><br>
+            <p id="para4"> </p>
+            <br><br>
+            
+        </div>
+    </form>
+</body>
+
+</html>
